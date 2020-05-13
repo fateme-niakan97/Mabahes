@@ -2,9 +2,15 @@ import os
 from skimage import io
 import matplotlib.pyplot as plt
 
-filename = os.path.join('pictures/1.png')
-print('here1')
-moon = io.imread(filename)
+filename = os.listdir('pictures')
+print(filename)
+list_of_images = []
 
-print(moon.shape)
-plt.imshow(moon)
+for item in filename:
+    img = io.imread(item)
+    list_of_images.append(img)
+
+print(list_of_images)
+
+# list_pics = io.imread(filename)
+
