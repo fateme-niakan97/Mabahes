@@ -1,0 +1,26 @@
+from PIL import Image
+import matplotlib.pyplot as plt
+from skimage.color import rgb2gray
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.image as mpimg
+
+
+def rgb2gray(rgb):
+    return np.dot(rgb[...,:3], [0.2125, 0.7174, 0.0721])
+
+img = mpimg.imread(r'F:\uni\8\mabahes2\W2_IP\answers\p2_pic\butterfly.png')
+gray = rgb2gray(img)
+#plt.imshow(gray, cmap=plt.get_cmap('gray'), vmin=0, vmax=1)
+#plt.show()
+
+fig, axes = plt.subplots(1, 2, figsize=(8, 4))
+ax = axes.ravel()
+
+ax[0].imshow(img)
+ax[0].set_title("Original")
+ax[1].imshow(gray, cmap=plt.cm.gray)
+ax[1].set_title("Grayscale")
+
+fig.tight_layout()
+plt.show()
