@@ -2,11 +2,11 @@ import os
 from skimage import io
 import matplotlib.pyplot as plt
 
-filename = os.listdir('pictures')
-print(filename)
+filename_list = os.listdir('pictures')
+print(filename_list)
 list_of_images = []
 
-for item in filename:
+for item in filename_list:
     img = io.imread('pictures\\' + item)
     list_of_images.append(img)
 
