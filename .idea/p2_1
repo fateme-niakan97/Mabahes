@@ -11,8 +11,6 @@ def rgb2gray(rgb):
 
 img = mpimg.imread(r'F:\uni\8\mabahes2\W2_IP\answers\p2_pic\butterfly.png')
 gray = rgb2gray(img)
-#plt.imshow(gray, cmap=plt.get_cmap('gray'), vmin=0, vmax=1)
-#plt.show()
 
 fig, axes = plt.subplots(1, 2, figsize=(8, 4))
 ax = axes.ravel()
