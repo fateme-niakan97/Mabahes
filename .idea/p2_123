@@ -3,25 +3,23 @@ import matplotlib.image as mpimg
 from skimage.color import rgb2hsv
 from PIL import Image
 from skimage.color import rgb2gray
+from skimage import io
 import numpy as np
 
 img = mpimg.imread(r'F:\uni\8\mabahes2\W2_IP\answers\p2_pic\bird.jpg')
+plt.imshow(img)
+plt.savefig(r'F:\uni\8\mabahes2\W2_IP\answers\new/' + 'rbg' + '.png')
+
+#=================gray
 
 def rgb2gray(rgb):
     return np.dot(rgb[...,:3], [0.2125, 0.7174, 0.0721])
 
 gray = rgb2gray(img)
+plt.imshow(gray, cmap=plt.cm.gray)
+plt.savefig(r'F:\uni\8\mabahes2\W2_IP\answers\new/' + 'gray' + '.png')
 
-fig, axes = plt.subplots(1, 2, figsize=(8, 4))
-ax = axes.ravel()
-
-ax[0].imshow(img)
-ax[0].set_title("Original")
-ax[1].imshow(gray, cmap=plt.cm.gray)
-ax[1].set_title("Grayscale")
-
-fig.tight_layout()
-plt.show()
+#==========hsv
 
 rgb_img = img
 hsv_img = rgb2hsv(rgb_img)
@@ -41,6 +39,7 @@ ax2.set_title("Value channel")
 ax2.axis('off')
 
 fig.tight_layout()
+plt.savefig(r'F:\uni\8\mabahes2\W2_IP\answers\new/' + 'hsv' + '.png')
 
 hue_threshold = 0.04
 binary_img = hue_img > hue_threshold
@@ -56,6 +55,7 @@ ax1.set_title("Hue-thresholded image")
 ax1.axis('off')
 
 fig.tight_layout()
+plt.savefig(r'F:\uni\8\mabahes2\W2_IP\answers\new/' + "Histogram&Hue-thresholded" + '.png')
 
 fig, ax0 = plt.subplots(figsize=(4, 3))
 
@@ -67,4 +67,7 @@ ax0.set_title("Hue and value thresholded image")
 ax0.axis('off')
 
 fig.tight_layout()
-plt.show()
+plt.savefig(r'F:\uni\8\mabahes2\W2_IP\answers\new/' + "3" + '.png')
+#plt.show()
+
+
